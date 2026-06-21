@@ -9,10 +9,10 @@ import java.util.List;
 
 @Repository
 public interface QuestionRepo extends JpaRepository<Question, Integer> {
-    List<Question> findByCategory(String category);
+    List<Question> findByCategoryAndDifficultyLevel(String category, String difficultyLevel);
 
     @Query(
-            value = "SELECT * FROM question q WHERE q.category = :category ORDER BY RAND() LIMIT :numQ",
+            value = "SELECT * FROM question q WHERE q.category = :category AND q.difficultyLevel = :difficultyLevel ORDER BY RAND() LIMIT :numQ",
             nativeQuery = true
     )
     List<Question> getQuestionsForquiz(String category, int numQ);

@@ -20,9 +20,9 @@ public class QuestionController {
         return service.getAllQuestions();
     }
 
-    @GetMapping("category/{category}")
-    public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category){
-        return service.getQuestionsByCategory(category);
+    @GetMapping("category/{category}/{level}")
+    public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category, @PathVariable String level){
+        return service.getQuestionsByCategory(category, level);
     }
 
     @GetMapping("{id}")

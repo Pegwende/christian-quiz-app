@@ -61,9 +61,9 @@ public class QuestionService {
         return new ResponseEntity<>(new Question(), HttpStatus.OK);
     }
 
-    public ResponseEntity<List<Question>> getQuestionsByCategory(String category) {
+    public ResponseEntity<List<Question>> getQuestionsByCategory(String category, String level) {
         try {
-            return new  ResponseEntity<>(questionRepo.findByCategory(category), HttpStatus.OK);
+            return new  ResponseEntity<>(questionRepo.findByCategoryAndDifficultyLevel(category,level), HttpStatus.OK);
         } catch (Exception e){
             e.printStackTrace();
         }
